@@ -11,33 +11,33 @@
     const tile: TileSize = 16;
 
     //function: login -> success, fail
-    type SuccesState = {
-        response: {
-            body: string;
-        }
-    };
-    type FailState = {
-        reason: string;
-    }
+    // type SuccesState = {
+    //     response: {
+    //         body: string;
+    //     }
+    // };
+    // type FailState = {
+    //     reason: string;
+    // }
 
-    type LoginState = SuccesState | FailState;
+    // type LoginState = SuccesState | FailState;
 
-    function login(id: string, password: string): LoginState {
-        return {
-            response: {
-                body: 'logged in!',
-            }
-        }
-    }
+    // function login(id: string, password: string): LoginState {
+    //     return {
+    //         response: {
+    //             body: 'logged in!',
+    //         }
+    //     }
+    // }
 
-    //printLoginState(state: LoginState);
-    // sucess -> body;
-    // fail -> failure
-    function printLoginState(state: LoginState) {
-        if('response' in state) {
-            console.log(state.response.body);
-        }else {
-            console.log(state.reason);
-        }
-    }
+    // //printLoginState(state: LoginState);
+    // // sucess -> body;
+    // // fail -> failure
+    // function printLoginState(state: LoginState) {
+    //     if('response' in state) {
+    //         console.log(state.response.body);
+    //     }else {
+    //         console.log(state.reason);
+    //     }
+    // }
 }
