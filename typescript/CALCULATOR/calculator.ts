@@ -2,22 +2,39 @@
  * Let's make a calculator 🧮
  */
 
-type Calculate = 'add' | 'substract' | 'multiply' | 'divide' | 'remainder';
+type Command = 'add' | 'substract' | 'multiply' | 'divide' | 'remainder';
 
-function calculate(calculate: Calculate, num1: number, num2: number): number {
-    let result: number = 0;
-    if(calculate === 'add') {
-        result = num1 + num2;
-    }else if(calculate === 'substract') {
-        result = num1 - num2;
-    }else if(calculate === 'multiply') {
-        result = num1 * num2;
-    }else if(calculate === 'divide') {
-        result = num1 / num2;
-    }else {
-        result = num1 % num2;
+// function calculate(calculate: Calculate, num1: number, num2: number): number {
+//     let result: number = 0;
+//     if(calculate === 'add') {
+//         result = num1 + num2;
+//     }else if(calculate === 'substract') {
+//         result = num1 - num2;
+//     }else if(calculate === 'multiply') {
+//         result = num1 * num2;
+//     }else if(calculate === 'divide') {
+//         result = num1 / num2;
+//     }else {
+//         result = num1 % num2;
+//     }
+//     return result;
+// }
+
+function calculate(command: Command, num1: number, num2: number): number {
+    switch(command) {
+        case "add":
+            return num1 + num2;
+        case 'substract':
+            return num1 = num2;
+        case 'multiply':
+            return num1 * num2;
+        case 'divide':
+            return num1 / num2;
+        case 'remainder':
+            return num1 % num2;
+        default:
+            throw new Error('unknown command');
     }
-    return result;
 }
 
 console.log(calculate('add', 1, 3)); // 4
