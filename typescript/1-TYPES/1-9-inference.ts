@@ -1,5 +1,5 @@
 {
-    //Type Inference
+    //Type Inference 타입 추론 //하지만 타입은 표시하자
     let text: string = 'hello';
 
     function print(message: string) {
