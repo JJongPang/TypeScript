@@ -49,7 +49,7 @@ const obj = {
     age: 30
 };
 
-const obj2 = {
+const obj3 = {
     animal: 'dog'
 }
 
@@ -60,4 +60,4 @@ function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
 
 
 console.log(getValue(obj, 'name')); // jonghyeon
-console.log(getValue(obj2, 'animal'));  // 30
+console.log(getValue(obj3, 'animal'));  // 30
