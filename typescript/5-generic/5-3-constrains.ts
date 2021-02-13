@@ -27,7 +27,7 @@ function payBad(employee: Employee): Employee {
 } 
 
 function pay<T extends Employee>(employee: T): T {
-    employee.pay;
+    employee.pay();
     return employee;
 }
 
