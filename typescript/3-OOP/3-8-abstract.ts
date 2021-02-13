@@ -6,83 +6,91 @@
     }
 
     interface CoffeeMaker {
-        makerCoffee(shots: number): CoffeeCup;
+        makeCoffee(shots: number): CoffeeCup;
     }
 
-    //추상클래스
     abstract class CoffeeMachine implements CoffeeMaker {
-        private static BEANS_GRAMM_PER_SHOT:number = 7;
-        private coffeeBeans: number = 0; 
+        private static BEANS_GRAMM_PER_SHOT: number = 7;
+        private coffeeBenas: number = 0;
 
-        constructor(coffeeBeans: number) {
-            this.coffeeBeans = coffeeBeans
+        constructor(coffeeBeans: number){
+            this.coffeeBenas = coffeeBeans;
         }
 
         filleCoffeeBeans(beans: number) {
             if(beans < 0) {
-                throw new Error('value for beans should be greater than 0');
+                throw new Error('value for beans should be greater than 0')
             }
-            this.coffeeBeans += beans;
-        }
-
-        private grindBeans(shots: number) {
-            console.log(`grinding beans for ${shots}`);
-            if(this.coffeeBeans < shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT) {
-                throw new Error('Not enough coffee beans!');
-            }
-            this.coffeeBeans -= shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT;
-        }
-
-        private preheat() {
-            console.log('Heating Heating~~!!!');
-        }
-
-        protected abstract extract(shots: number):CoffeeCup;
-
-        makerCoffee(shots: number):CoffeeCup {
-            this.grindBeans(shots);
-            this.preheat();
-            return this.extract(shots);
+            this.coffeeBenas += beans;
         }
 
         clean() {
             console.log('cleaning the machine....');
         }
+
+        private grindBeans(shots: number) {
+            console.log(`grinding beans for ${shots}`);
+            if(this.coffeeBenas < shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT) {
+                throw new Error('Not enough coffee beans!');
+            }
+            this.coffeeBenas -= shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT;
+        }
+
+         private preheat(): void {
+            console.log('HEATING UP... HEATING UP...');
+        }
+
+        protected abstract extract(shots: number): CoffeeCup;
+
+        makeCoffee(shots: number): CoffeeCup {
+            this.grindBeans(shots);
+            this.preheat();
+            return this.extract(shots);
+        }
     }
 
-    class CaffeLatteMachine extends CoffeeMachine {
-        constructor(beans: number, public readonly serialNumer: string) {
-            super(beans);
-        }
-        private steamMilk(): void {
-            console.log('Steaming some Milk');
+    class CoffeLatteMachine extends CoffeeMachine {
+        constructor(beans: number, public readonly serialNumber: string) {
+            super(beans)    
         }
 
-        protected extract(shots: number): CoffeeCup {
+        private steamMilk(): void {
+            console.log( 'Steaming some milk...');
+        }
+
+        protected extract(shots): CoffeeCup {
             this.steamMilk();
             return {
                 shots,
                 hasMilk: true
             }
         }
-    }
+    } 
 
     class SweetCoffeeMaker extends CoffeeMachine {
-        protected extract(shots: number): CoffeeCup {
+        spoonSugar() {
+            console.log('sugar sugar');
+        }
+       
+        protected extract(shots): CoffeeCup {
+            this.spoonSugar();
             return {
-                shots,
+                ...shots,
                 hasSugar: true
             }
         }
     }
 
+    // CoffeeMachine: implements CoffeeMaker
     const machines: CoffeeMaker[] = [
-        new CaffeLatteMachine(16, 'Jong-Jong'),
-        new SweetCoffeeMaker(16)
-    ];
-    machines.forEach(machines => {
-        console.log('-------------------------------');
-        const coffee = machines.makerCoffee(1);
-        console.log(coffee);
+        new CoffeLatteMachine(16, 'SSSS'),
+        new SweetCoffeeMaker(16),
+        new CoffeLatteMachine(16, '123123'),
+        new SweetCoffeeMaker(16),
+    ]
+
+    machines.forEach(machine => {
+        console.log('----------------------');
+        machine.makeCoffee(1);
     })
 }

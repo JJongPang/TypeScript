@@ -5,30 +5,29 @@
     }
 
     class CoffeeMaker {
-        static BEANS_GRAMM_PER_SHOT:number = 7;
-        coffeeBeans: number = 0; //instance (object) level
+        private static BEANS_GRAMM_PER_SHOT: number = 7;
+        private coffeeBenas: number = 0;
 
-        constructor(coffeeBeans: number) {
-            this.coffeeBeans = coffeeBeans
+        constructor(coffeeBeans: number){
+            this.coffeeBenas = coffeeBeans;
         }
 
-        static makerMachine(coffeeBeans: number): CoffeeMaker {
+        static makeMachine(coffeeBeans: number): CoffeeMaker {
             return new CoffeeMaker(coffeeBeans);
         }
 
-        makeCoffee(shots: number):CoffeeCup {
-            if(this.coffeeBeans < shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT) {
-                throw new Error('Not enough coffee beans!');
+        makeCoffee(shots: number): CoffeeCup {
+            if(this.coffeeBenas < shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT) {
+                throw new Error("Not enough coffee beans");
             }
-            this.coffeeBeans -= shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT;
+            this.coffeeBenas -= shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT;
             return {
                 shots,
-                hasMilk: false,
+                hasMilk: false
             }
         }
     }
-    const coffee = new CoffeeMaker(32);
-    const maker = CoffeeMaker.makerMachine(14);
-    console.log(coffee);
-    console.log(maker);
+
+   const maker = new CoffeeMaker(32);
+   console.log(maker);
 }
