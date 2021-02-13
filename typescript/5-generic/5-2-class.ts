@@ -19,4 +19,6 @@ class SimpleEither<L, R> implements Either<L, R> {
 const either:Either<number, number> = new SimpleEither(4, 5);
 either.left();  //4
 either.right(); //5
+
+//제네릭
 const best = new SimpleEither('check', 1);
