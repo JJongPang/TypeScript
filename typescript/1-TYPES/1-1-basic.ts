@@ -13,27 +13,33 @@
     const boal: boolean = true;
 
     //undefined
-    let name: number | undefined;    
+    let age: number | undefined;    
+    age = undefined;
+    age = 1;
+
+    function find(): number | undefined {
+        return undefined;
+    }
 
     //null
-    let person: number | null;
+    let person: string | null;
 
-    //unknown
+    //unknown(어떤 종류의 데이터를 담을수 있음)
     let notSure: unknown = 0;
     notSure = 'he';
     notSure = true;
     
-    // any
+    // any(어떤 종류의 데이터를 담을수 있음)
     let anything: any = 0;
     anything = 'hello';
 
-    // void
+    // void(변수 선언 (X) )
     function print(): void {
         console.log('hello');
         return;
     }
 
-    // never
+    // never(변수 선언 (X) )
     function throwError(message: string): never {
         //message -> server(log)
         // while(true) {
