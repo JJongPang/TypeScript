@@ -24,12 +24,12 @@
     //null
     let person: string | null;
 
-    //unknown(어떤 종류의 데이터를 담을수 있음)
+    //unknown(어떤 종류의 데이터를 담을 수 있음)
     let notSure: unknown = 0;
     notSure = 'he';
     notSure = true;
     
-    // any(어떤 종류의 데이터를 담을수 있음)
+    // any(어떤 종류의 데이터를 담을 수 있음)
     let anything: any = 0;
     anything = 'hello';
 
