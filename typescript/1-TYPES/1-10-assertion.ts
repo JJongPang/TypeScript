@@ -14,10 +14,10 @@
 
     function findNumbers(): number[] | undefined {
         return undefined;
-    }
-    const numbers = findNumbers();
-    numbers!.push(2); //경고
+    } 
 
-    const button = document.querySelector('class')!;
-    button.nodeValue;
+    const numbers = findNumbers()!;
+    
+    // 값이 있다는 확신
+    numbers!.push(2)
 }
