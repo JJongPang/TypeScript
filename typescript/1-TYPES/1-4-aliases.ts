@@ -1,23 +1,22 @@
 {
-    // aliases
+    // Type Aliases
     type Text = string;
-    const name: Text = 'ellie';
-    const address: Text = 'korea'
-    type Num = number;
-    type Student = {
+    const name: Text = 'Hello';
+
+    const address: Text = 'korea';
+    
+    type Stydent = {
         name: string;
         age: number;
     }
 
-    const student: Student = {
-        name: 'Jong',
-        age: 12
-    }
+    const student: Stydent = {
+        name: 'jong',
+        age: 12,
+    };
 
-    //String Literal Types
+    // String Literal Types
     type Name = 'name';
-    let jongName: Name;
-    jongName = 'name';
-    type JSON = 'json';
-    const json: JSON = 'json';
+    let jongName: Name = 'name';
+    console.log(jongName);
 }
