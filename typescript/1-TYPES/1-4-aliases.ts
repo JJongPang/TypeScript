@@ -18,6 +18,8 @@
     // String Literal Types
     type Name = 'name';
     let jongName: Name = 'name';
-    
+
     console.log(jongName);
+
+    
 }
