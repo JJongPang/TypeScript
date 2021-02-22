@@ -4,21 +4,22 @@
         hasMilk: boolean;
     }
 
-    const BEANS_GRAMM_PER_SHOT: number = 7;
+    const BEANS_GRAMM_PER_SHOT: number = 7
     let coffeeBeans: number = 0;
 
-    function makeCoffee(shots: number): CoffeeCup {
+    function makeCoffe(shots: number): CoffeeCup {
         if(coffeeBeans < shots * BEANS_GRAMM_PER_SHOT) {
-            throw new Error('NOt enough coffee beans');
+            throw new Error('Not enough coffee beans!');
         }
         coffeeBeans -= shots * BEANS_GRAMM_PER_SHOT;
+        console.log(coffeeBeans)
         return {
             shots,
             hasMilk: false
         }
     }
-    
+
     coffeeBeans += 3 * BEANS_GRAMM_PER_SHOT;
-    const coffee = makeCoffee(2);
+    let coffee = makeCoffe(2);
     console.log(coffee);
 }
