@@ -43,4 +43,31 @@
     maker.fillCoffeeBeans(32);
     console.log(maker)
 
+
+    class User {
+        get fullName(): string {
+            return `${this.firstName} ${this.lastName}`;
+        }
+
+        private internalAge = 4;
+
+        get age(): number {
+            return this.internalAge;
+        }
+
+        set age(num: number) {
+            this.internalAge = num;
+        }
+
+        constructor(private firstName: string, private lastName: string) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+    }
+
+    let name = new User('jong', 'hyeon');
+    console.log(name.fullName);
+
+    name.age = 5;
+    console.log(name.age);
 }
