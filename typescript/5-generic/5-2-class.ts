@@ -1,12 +1,11 @@
-//either: a or b
+// either: a or b
 interface Either<L, R> {
-    left: () => L; 
-    right: () => R; 
+    left: () => L;
+    right: () => R;
 }
 
 class SimpleEither<L, R> implements Either<L, R> {
     constructor(private leftValue: L, private rightValue: R) {}
-    
     left(): L {
         return this.leftValue;
     }
@@ -14,11 +13,9 @@ class SimpleEither<L, R> implements Either<L, R> {
     right(): R {
         return this.rightValue;
     }
-}
+} 
 
-const either:Either<number, number> = new SimpleEither(4, 5);
-either.left();  //4
-either.right(); //5
-
-//제네릭
-const best = new SimpleEither('check', 1);
+const either = new SimpleEither(4, 5);
+either.left();  // 4
+either.right(); // 5
+const best = new SimpleEither(4, {name: 'hello'});
