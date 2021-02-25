@@ -41,3 +41,16 @@ const jonghyeonAfterPay = payBad(jonghyeon);
 const bobAfterPay = payBad(bob);  
 
 jonghyeon.workFullTime();
+bob.workPartTime();
+
+const obj = {
+    name: 'jonghyeon',
+    age: 30
+}
+
+function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
+    return obj[key];
+}
+
+console.log(getValue(obj, 'name')); // jonghyeon, 
+console.log(getValue(obj, 'age')); // 30, 
