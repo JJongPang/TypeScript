@@ -2,33 +2,23 @@
 // JavaScript: Error
 
 // Error(Exception) Handling: try -> catch -> finally
-
 function readFile(fileName: string): string {
-    if(fileName == 'not exist!') {
-        throw new Error(`file not exist!!! ${fileName}`);
+    if(fileName === 'Not File') {
+        throw new Error(`Not File ${fileName}`);
     }
-
     return 'file contents';
 }
 
-function closeFile(fileName: string) {
-
+function closeFile(fileName: string): void {
+    console.log(`${fileName} Close`);
 }
 
+const fileName = 'Not File';
 
-
-function run() {
-    const fileName = 'not exist!';
-
-    try {
-        console.log(readFile(fileName));
-    } catch(error) {
-        console.log(`catched ${error}`);
-        return;
-    } finally {
-        closeFile(fileName);
-        console.log('finally!!!!');
-    }
-    
-    console.log('!!!!');
+try {
+    console.log(readFile(fileName));
+}catch(e) {
+    console.log(`catched ${e}~!!!!`)
+}finally {
+    closeFile(fileName);
 }
