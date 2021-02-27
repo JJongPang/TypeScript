@@ -1,63 +1,56 @@
 type PositionType = {
-    x: number;
-    y: number;
+    x: number,
+    y: number
 }
 
-interface PositionInterface {
-    x: number;
-    y: number;
+interface PostionInterface {
+    x: number,
+    y: number
 }
 
-
-// object *
+// object 둘다가능
 const obj1: PositionType = {
     x: 1,
     y: 1
 }
 
-const obj2: PositionInterface = {
-    x: 2,
-    y: 2,
-    z: 2
+const obj2: PostionInterface = {
+    x: 1,
+    y: 1
 }
 
-// class *
+// class 둘다가능
 class Pos1 implements PositionType {
     x: number;
     y: number;
 }
 
-class Pos2 implements PositionInterface {
+class Pos2 implements PostionInterface {
     x: number;
     y: number;
-    z: number;
 }
 
 // Extends
-interface ZPostionInterface extends PositionInterface {
+interface ZPositionInterface extends PostionInterface {
     z: number;
 }
 
-type ZPositionType = PositionType & {z: number};
+type ZPositionType = PositionType & { z: number}
 
-// 오직 인터페이스만 merge 가능
+
+// 오직 인터페이스만 결합 가능
 interface PositionInterface {
     z: number;
 }
 
-// type PositionType {
-//     z: number;2
+// type PositionType = {
+
 // }
 
-// 오직 타입만 가능 computed properties
+// 오직 타입만 가능
 type Person = {
     name: string,
-    age: number
+    age: number,
 }
 
-type Name = Person['name'];  //string
-type NumberType = number;
-type Direction = 'left' | 'right';
-
-
-
+type Name = Person['name']; // string
