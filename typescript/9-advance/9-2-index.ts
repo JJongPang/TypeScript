@@ -1,10 +1,10 @@
 {
-    const obj =  {
-         name: 'jonghyeon',
+    const obj = {
+        name: 'Jong',
     }
-    obj.name; // jonghyeon
-    obj['name']; // jonghyeon
 
+    console.log(obj.name);
+    console.log(obj['name']);
 
     type Animal = {
         name: string;
@@ -12,21 +12,22 @@
         gender: 'male' | 'female';
     }
 
-    type Name = Animal['name']; // string
-    const text: Name = 'hello'; //string type만 가능
+     type Name = Animal['name'] // string
+     const text: Name = 'hello';
 
-    type Gender = Animal['gender']; // 'male' | 'female'
+     type Gender = Animal['gender']; // 'male' 'female'
+     const checkGender: Gender = "female";
 
-    type Keys = keyof Animal; // 'name' | 'age' | 'gender'
-    const key: Keys = 'gender';
+    type Keys = keyof Animal; // 'name', 'age', 'gender' 
+    const key: Keys = 'gender'
 
     type Person = {
         name: string;
         gender: Animal['gender'];
-    };
+    }
 
     const person: Person = {
-        name: 'JongHyeon',
-        gender: 'male',
+        name: 'jong',
+        gender: 'male'
     }
 }
