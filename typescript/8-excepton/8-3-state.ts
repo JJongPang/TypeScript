@@ -1,53 +1,47 @@
 {
-    class TimeoutError extends Error {}
-    class OfflineError extends Error {}
-    
+    type NetWorkErrorState = {
+        result: 'fail';
+        reason: 'offline' | 'down' | 'timeout';
+    }
+
     type SuccessState = {
         result: 'success';
     }
 
-    type NetworkErrorState = {
-        result: 'fail'
-        reason: 'offline' | 'down' | 'timeout';
-    }
-
-    type ResultState = SuccessState | NetworkErrorState;
-
+    type ResultState = SuccessState | NetWorkErrorState; 
+    
     class NetworkClient {
-        tryConnection(): ResultState {
-            return {
-                result: 'success'
+        tryConnect(state: ResultState) {
+            if(state.result === 'success') {
+                // ...
+                // ...
             }
         }
     }
-    
+
     class UserService {
         constructor(private client: NetworkClient) {}
-    
+
         login() {
-            this.client.tryConnection();
-            // login...
+            this.client.tryConnect();
+            console.log('login~!!!');
         }
     }
-    
+
     class App {
         constructor(private userService: UserService) {}
         run() {
-            // 우아한 error handleing
             try {
                 this.userService.login();
             } catch(error) {
-                // error: any Type
                 // show dialog to user
-                if(error instanceof OfflineError) {
-                    //
-                }
             }
-        };
+        }
     }
-    
+
     const client = new NetworkClient();
     const service = new UserService(client);
     const app = new App(service);
-    app.run();
+    
+    console.log(app.run());  
 }
