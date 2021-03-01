@@ -1,18 +1,23 @@
-type PageInfo = {
-    title: string;
-};
+{
+    // 서로다른 타입을 합칠때
+    
+    type PageInfo = {
+        title: string;
+    };
 
-type Page = 'home' | 'about' | 'contact';
+    type Page = 'home' | 'about' | 'contact';
 
-// 묶다
-const nav: Record<Page, PageInfo> = {
-    home: {
-        title: 'Home'
-    },
-    about: {
-        title: 'About'
-    },
-    contact: {
-        title: 'Contact'
+    const nav: Record<Page, PageInfo> = {
+        home: {
+            title: 'Home',
+        },
+
+        about: {
+            title: 'About'
+        },
+
+        contact: {
+            title: 'Contact'
+        }
     }
 }
