@@ -1,4 +1,7 @@
-import add, { print as printMessage } from './10-3-module1.js';
+// import add from './10-3-module1.js';
+// import { print } from './10-3-module1.js';
 
-console.log(add(1, 3));
-printMessage();
+import * as calculator from './10-3-module1.js';
+
+console.log(add(1, 2));
+calculator.print;
