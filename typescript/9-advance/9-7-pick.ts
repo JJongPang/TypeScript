@@ -1,4 +1,6 @@
 {
+    // 선택 Pick
+
     type Video = {
         id: string;
         title: string;
@@ -17,7 +19,7 @@
         };
     }
 
-    function getVideoMetadata(id: string): VideoMetadata {
+    function getVideoMetadatas(id: string): VideoMetadata {
         return {
             id: id,
             title: 'title',

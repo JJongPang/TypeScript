@@ -1,27 +1,28 @@
 {
-    type Video = {
+    // 선택한 data 빼버리기 pick 반대
+
+    type Videos = {
         id: string;
         title: string;
         url: string;
         data: string;
-    };
-
-    function getVideos(id: string): Video {
-        return {
-            id,
-            title: 'video',
-            url: 'https://..',
-            data: 'byte-data..'
-        }
     }
 
-    // Pick 반대로 원하는 것을 빼버릴때
-    type VideoMetadata = Omit<Video, 'url' | 'data'>
+    type VideoMetadatas = Omit<Videos, 'url' | 'data'>;
 
-    function getVideoMetadatas(id: string): VideoMetadata {
+    function getVideos(id: string): Videos {
         return {
-            id,
+            id, 
+            title: 'video',
+            url: 'https//..',
+            data: 'byte-data',
+        };
+    }
+
+    function getVideoMetadata(id: string): VideoMetadatas {
+        return{
+            id: id,
             title: 'title'
-        }
+        } 
     }
 }
