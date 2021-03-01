@@ -1,9 +1,10 @@
-console.log(this);
+console.log(this); // Window
 
 function simpleFunc() {
     console.log(this);
 }
-simpleFunc();
+
+simpleFunc(); // Window
 
 class Counter {
     count = 0;
@@ -13,11 +14,10 @@ class Counter {
 }
 
 const counter = new Counter();
-counter.increase();
+counter.increase(); // counter
 
-//const caller = counter.increase();
-const caller = counter.increase.bind(counter);
-caller();
+const caller = counter.increase;
+caller(); // undefined
 
 class Bob {}
 const bob = new Bob();
